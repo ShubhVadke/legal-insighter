@@ -36,7 +36,7 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/analyze", {
+      const response = await fetch("https://legal-reader-backend.onrender.com/api/analyze", {
         method: "POST",
         body: formData,
       });
@@ -63,7 +63,7 @@ export default function Home() {
     setChatLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/chat", {
+      const response = await fetch("https://legal-reader-backend.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userMsg }),
