@@ -115,7 +115,7 @@ export default function Home() {
 
           {loading && (
             <div className="bg-gray-800 p-12 rounded-xl border border-gray-700 text-center text-gray-400 animate-pulse">
-              AI report ready kar raha hai...
+              Preparing the report...
             </div>
           )}
 
@@ -150,7 +150,7 @@ export default function Home() {
                 {/* Messages Display Screen */}
                 <div className="flex-1 bg-gray-900 rounded-lg p-4 overflow-y-auto space-y-3 custom-scrollbar">
                   {chatHistory.length === 0 && (
-                    <p className="text-gray-500 text-center text-sm mt-12">Is document ke baare mein kuch bhi poocho (e.g. Iska tech stack kya hai? ya Notice period kya h?)</p>
+                    <p className="text-gray-500 text-center text-sm mt-12">Ask anything about this document (e.g., what is its tech stack? or what is the notice period?)</p>
                   )}
                   {chatHistory.map((msg, idx) => (
                     <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -160,7 +160,7 @@ export default function Home() {
                       </div>
                     </div>
                   ))}
-                  {chatLoading && <div className="text-gray-500 text-xs italic animate-pulse">Llama soch raha hai...</div>}
+                  {chatLoading && <div className="text-gray-500 text-xs italic animate-pulse">Llama is thinking...</div>}
                 </div>
 
                 {/* Input Bar */}
