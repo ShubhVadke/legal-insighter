@@ -97,7 +97,7 @@ export default function Home() {
           <div className="border-2 border-dashed border-gray-600 rounded-lg p-6 text-center hover:border-emerald-500 transition-colors relative cursor-pointer">
             <input type="file" accept=".pdf" onChange={handleFileChange} className="absolute inset-0 opacity-0 cursor-pointer" />
             <FileText className="mx-auto text-gray-400 mb-2" size={40} />
-            <p className="text-sm text-gray-300">{file ? file.name : "Apni PDF yahan select/drag karein"}</p>
+            <p className="text-sm text-gray-300">{file ? file.name : "Select/drag your PDF here."}</p>
           </div>
           {error && <p className="text-red-400 text-sm mt-3 font-medium">⚠️ {error}</p>}
           <button onClick={uploadAndAnalyze} disabled={loading} className="w-full mt-4 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-700 text-gray-950 font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2">
@@ -109,7 +109,7 @@ export default function Home() {
         <div className="lg:col-span-8 space-y-6">
           {!analysis && !loading && (
             <div className="bg-gray-800 p-12 rounded-xl border border-gray-700 text-center text-gray-400">
-              Left side se PDF upload karke report chalu karein.
+              Start the report by uploading the PDF from the left side.
             </div>
           )}
 
