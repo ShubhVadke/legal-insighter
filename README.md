@@ -34,18 +34,25 @@ A powerful Full-Stack AI application that simplifies complex legal contracts, fl
 ---
 
 ## ⚙️ Architecture & Data Flow
-+---------------------+        Vercel Proxy        +-------------------------+
-|  Frontend: Next.js  | -------------------------> |    Backend: FastAPI     |
-|  (Live on Vercel)   | <------------------------- |    (Live on Render)     |
-+---------------------+       Secure Pipeline      +-------------------------+
-^                                                     |
-| Renders Summary &                                   | Sends Prompt
-| Chat Responses                                      | + PDF Text
-|                                                     v
-+------------------------------------------ +-------------------------+
-|   Groq / OpenAI API     |
-|     (AI LLM Engine)     |
-+-------------------------+
+
+```mermaid
+graph TD
+    %% Nodes Style Definition
+    classDef frontend fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+    classDef backend fill:#16a34a,stroke:#15803d,stroke-width:2px,color:#fff;
+    classDef ai fill:#db2777,stroke:#be185d,stroke-width:2px,color:#fff;
+
+    %% Flowchart Nodes
+    A[Frontend: Next.js <br><i>Live on Vercel</i>]:::frontend
+    B[Backend: FastAPI <br><i>Live on Render</i>]:::backend
+    C[Groq / OpenAI API <br><i>AI LLM Engine</i>]:::ai
+
+    %% Flowchart Connections
+    A -->|1. User Uploads PDF / Asks Chat Qs| B
+    B -->|2. Extracts PDF Text & Bundles Prompt| C
+    C -->|3. Returns Structured JSON AI Response| B
+    B -->|4. Proxy Rewrite Pipeline| A
+```
 
 ### How It Works:
 1. **User Action:** User uploads a PDF or sends a message in the Next.js UI.
