@@ -62,8 +62,10 @@ A powerful Full-Stack AI application that simplifies complex legal contracts, fl
 ```bash
 git clone [https://github.com/ShubhVadke/legal-insighter.git](https://github.com/ShubhVadke/legal-insighter.git)
 cd legal-insighter
+```
 
 2. Backend Setup
+```
 cd backend
 # Create a virtual environment
 python -m venv .venv
@@ -77,8 +79,10 @@ echo "OPENAI_API_KEY=your_key_here" > .env
 
 # Run the backend server
 uvicorn app.main:app --reload
+```
 
 3. Frontend Setup
+```
 cd ../frontend
 # Install dependencies
 npm install
@@ -86,6 +90,7 @@ npm install
 # Run the local development server
 npm run dev
 Open http://localhost:3000 in your browser to test locally!
+````
 
 🌐 Production Deployment Notes
 Frontend Config: Uses Vercel's rewrite mechanism (/api/backend/:path*) to securely route requests to the live Render backend, bypassing all CORS production issues.
