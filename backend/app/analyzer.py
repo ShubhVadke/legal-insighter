@@ -5,7 +5,7 @@ from openai import OpenAI
 def analyze_legal_text(raw_text: str) -> dict:
     groq_api_key = os.getenv("GROQ_API_KEY")
     if not groq_api_key:
-        raise ValueError("Bhai, GROQ_API_KEY .env file mein nahi mili!")
+        raise ValueError("Bhai, GROQ_API_KEY .env file not find!")
     
     client = OpenAI(
         base_url="https://api.groq.com/openai/v1",
