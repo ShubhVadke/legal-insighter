@@ -2,9 +2,7 @@
 
 A powerful Full-Stack AI application that simplifies complex legal contracts, flags risky clauses, and allows users to chat directly with their documents to extract critical insights instantly.
 
-🚀 **Live Frontend:** [https://your-frontend-link.vercel.app](https://your-frontend-link.vercel.app)  
-⚙️ **Live Backend:** [https://legal-reader-backend.onrender.com](https://legal-reader-backend.onrender.com)
-
+🚀 **Live Project Website:** [https://legal-insighter.vercel.app/](https://legal-insighter.vercel.app/)
 ---
 
 ## 🔥 Features
