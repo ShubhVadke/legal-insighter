@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,33 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Nunito Sans", sans-serif;
+} */
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* 👇 Yahan humne Tailwind ko bol diya ki sans ka matlab Nunito Sans hai */
+  --font-sans: "Nunito Sans", sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Enforce on everything to be 100% safe */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Nunito Sans", sans-serif !important;
 }
