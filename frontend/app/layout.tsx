@@ -34,7 +34,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AI Legal Assistant",
+  title: "Legal Doc Analyzer",
   description: "Simplify complex contracts instantly.",
 };
 
