@@ -30,12 +30,12 @@ class ChatRequest(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"message": "Bhai backend ekdam mast chal raha hai!"}
+    return {"message": "Backend is Working!"}
 
 @app.post("/api/analyze")
 async def analyze_document(file: UploadFile = File(...)):
     if not file.filename.endswith('.pdf'):
-        raise HTTPException(status_code=400, detail="Sirf PDF files allowed hain!")
+        raise HTTPException(status_code=400, detail="Only PDF files allowed!")
     
     try:
         contents = await file.read()
@@ -49,7 +49,7 @@ async def analyze_document(file: UploadFile = File(...)):
                 extracted_text += text + "\n"
         
         if not extracted_text.strip():
-            raise HTTPException(status_code=400, detail="PDF mein koi readable text nahi mila.")
+            raise HTTPException(status_code=400, detail="Cannot find readable text in PDF")
         
         # 🔥 Text ko memory mein save kar lo chat ke liye
         DOCUMENT_STORE["last_extracted_text"] = extracted_text
@@ -63,14 +63,14 @@ async def analyze_document(file: UploadFile = File(...)):
         }
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Analysis fail ho gayi: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
 
 # 🔥 NAYA ROUTE: Chat ke liye
 @app.post("/api/chat")
 async def chat_with_document(req: ChatRequest):
     text_context = DOCUMENT_STORE.get("last_extracted_text", "")
     if not text_context:
-        raise HTTPException(status_code=400, detail="Pehle koi document upload karo bhai, tabhi toh jawab doon!")
+        raise HTTPException(status_code=400, detail="Upload a document first only then can I give you an answer!")
     
     groq_api_key = os.getenv("GROQ_API_KEY")
     client = OpenAI(base_url="https://api.groq.com/openai/v1", api_key=groq_api_key)
@@ -81,7 +81,7 @@ async def chat_with_document(req: ChatRequest):
             messages=[
                 {
                     "role": "system", 
-                    "content": f"You are a helpful assistant. Answer the user's question based strictly on this document text. Keep the answer friendly, short, and in Hinglish (Hindi + English).\n\nDocument Text:\n{text_context}"
+                    "content": f"You are a helpful assistant. Answer the user's question based strictly on this document text. Keep the answer friendly, short, and in English (English).\n\nDocument Text:\n{text_context}"
                 },
                 {"role": "user", "content": req.question}
             ],
