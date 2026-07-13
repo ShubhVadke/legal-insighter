@@ -12,7 +12,7 @@ A powerful Full-Stack AI application that simplifies complex legal contracts, fl
 - **📄 Smart PDF Parsing:** Instantly uploads and extracts text from complex legal PDFs.
 - **🔍 Automated Summary:** AI generates a bulleted, easy-to-understand breakdown of the document.
 - **⚠️ Risk Assessment (Red Flags):** Automatically scans, identifies, and flags hidden or risky clauses with clear reasons.
-- **💬 AI Document Chat:** A built-in interactive assistant allowing you to ask natural language questions (e.g., *"Notice period kya hai?"*) about the uploaded file.
+- **💬 AI Document Chat:** A built-in interactive assistant allowing you to ask natural language questions (e.g., *"What is Notice period?"*) about the uploaded file.
 - **🎨 Premium UI:** Styled beautifully with a dark-theme aesthetic using **Tailwind CSS v4** and the clean, rounded **Nunito Sans** font.
 
 ---
@@ -108,9 +108,9 @@ Tailwind v4 Theme mapping: Nunito Sans font successfully mapped globally via @th
 This project is licensed under the MIT License.
 ---
 
-### 🚀 Git Push lagao!
+### 🚀 Git Push!
 ```bash
 git add README.md
 git commit -m "docs: fixed architecture diagram and cleaned readme formatting"
 git push origin main
-
+```
