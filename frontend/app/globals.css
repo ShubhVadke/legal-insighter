@@ -19,8 +19,8 @@
   }
 }
 
-*, body {
+body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Geomini", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Geomini", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
